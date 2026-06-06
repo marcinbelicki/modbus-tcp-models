@@ -3,11 +3,17 @@ ThisBuild / version          := "0.1.0-SNAPSHOT"
 ThisBuild / organization     := "pl.belicki"
 ThisBuild / organizationName := "belicki"
 
-lazy val root = (project in file("."))
+lazy val root = project
+  .in(file("."))
   .settings(
-    name := "modbus-tcp-models",
+    name := "modbus-tcp-protocol-scala",
     libraryDependencies ++= Nil
-
+  ).aggregate(
+    models
   )
 
-// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
+lazy val models = project
+  .in(file("modules/models"))
+  .settings(
+    name := "models"
+  )
