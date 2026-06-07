@@ -26,4 +26,5 @@ object EncapsulatedInterfaceTransport extends ModbusFunction(0x2b) {
     case class Request() extends super.Request
 
   }
+
 }
